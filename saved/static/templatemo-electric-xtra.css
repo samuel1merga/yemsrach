@@ -1073,9 +1073,16 @@ https://templatemo.com/tm-596-electric-xtra
                 display: flex;
             }
 
-            .hero-content {
-                padding: 0 20px;
-            }
+            .hero {
+        padding: 10px;
+        min-height: 80vh;  /* optional: reduce height for small screens */
+    }
+
+    .hero-content {
+        padding: 0 10px;
+        width: 100%;
+    }
+
 
             .glitch-text {
                 font-size: clamp(1.2rem, 4.9vw, 2.4rem);
