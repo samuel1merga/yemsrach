@@ -1,1 +1,1 @@
-web: gunicorn new_sol.wsgi
+web:gunicorn new_sol.wsgi
