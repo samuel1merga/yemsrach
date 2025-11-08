@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}login {% endblock %}
+{% block content %}
+<style>
+  .login-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+  }
+  .mid{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:rgb(150, 145, 145);
+    width:270px;
+    height:280px;
+    border-radius:9px;
+    gap:10px;
+    background-color: rgba(248, 245, 245, 0.137);
+  }
+  h2{
+    color:rgb(235, 124, 124);
+    font-weight: 900;
+    font-size: 30px;
+
+  }
+  form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    gap:10px;
+  }
+  form input{
+    width:50%;
+    height:30px;
+    padding-left: 3px;
+    font-weight:500;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-radius:5px;
+    background-color:rgba(230, 224, 224, 0.247);
+    color: rgb(246, 253, 212);
+    transition: 0.3s ease;
+
+  }
+  input:focus{
+    border-color:rgb(129, 131, 13);
+    box-shadow: 0 0 10px rgb(129, 131, 13);
+  }
+  ::placeholder{
+    color:rgb(153, 151, 151);
+    padding-left:2px;
+  }
+button{
+  background-color:blue;
+  width:50%;
+  height:30px;
+  border: none;
+  border-radius: 5px;
+  color:rgb(236, 232, 232);
+  font-weight: 600;
+  transition: 0.4s ease;
+}
+button:hover{
+  color:yellow;
+  box-shadow: 0 0 10px rgb(255, 196, 0);
+}
+</style>
+    <div class="login-container">
+      <div class="mid">
+        {% if messages %} {% for message in messages %}
+        <p id="message">{{ message }}</p>
+        {% endfor %} {% endif %}
+        <h2>Login</h2>
+        <form method="post" action="/login/">
+          {% csrf_token %}
+          <label for="username">username:</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      
+    </div>
+
+{% endblock %}
+

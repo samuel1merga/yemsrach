@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<style>
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:100vh;
+        flex-direction: column;
+
+    }
+    .mid{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:20px;
+    }
+    table{
+        width:80%;
+    }
+    table, tr {
+        border:2px solid white;
+        border-collapse: collapse;
+        padding:3px;
+        border-color:rgb(121, 126, 125)
+    }
+    th{
+        color:rgb(139, 173, 169);
+        background-color: rgba(81, 126, 128, 0.384);
+        font-weight:900;
+    }
+    .less{
+        width:5%;
+    }
+    td{
+        color:rgb(82, 40, 28);
+        font-weight: 600;
+        text-align: center;
+        font-size: 20px;
+        background-color: rgba(128, 128, 128, 0.555);
+    }
+</style>
+<div class="container">
+    <table>
+        <head>
+            <th class="less">
+                profile picture
+            </th>
+            <th>
+                full name
+            </th>
+            <th>
+                phone no
+            </th>
+            <th>
+                location
+            </th>
+        </head>
+        {% for saved in saved %}
+    <div class="mid">
+        <tr>
+            <td>
+                <img style="width: 50px; height:50px;" src="{{ saved.profile_picture.url }}" alt="{{ saved.full_name }}">
+            </td>
+            <td>
+            {{ saved.full_name }}
+            </td>
+            <td>
+                {{ saved.phone_no }}
+            </td>
+            <td>
+                {{ saved.location }}
+        </tr>
+    </div>
+</div>   
+{% endfor %}
+    </table>
+
+
+{% endblock %}

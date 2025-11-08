@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ኢየሱስ ያድናል!!{% endblock %}</title>
+    <link href="{% static 'templatemo-electric-xtra.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 596 Electric Xtra
+
+https://templatemo.com/tm-596-electric-xtra
+
+-->
+</head>
+<body>
+        <!-- Animated Grid Background -->
+    <div class="grid-bg"></div>
+    <div class="gradient-overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- Animated Shapes -->
+    <div class="shapes-container">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-square"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="{% url 'home' %}" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF5E00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B2FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Christian Cross -->
+  <!-- Vertical beam -->
+  <rect x="18" y="4" width="4" height="32" fill="url(#logoGradient)" />
+  <!-- Horizontal beam -->
+  <rect x="10" y="14" width="20" height="4" fill="url(#logoGradient)" />
+</svg>
+
+                <span class="logo-text">ኢየሱስ ፍቅር ነው!!</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{% url 'home' %}" class="nav-link">መጀመርያ</a></li>
+                <li><a href="#features" class="nav-link">ጥቅሞች</a></li>
+                <li><a href="#about" class="nav-link">ስለ ኢየሱስ</a></li>
+                <li><a href="#contact" class="nav-link">አድራሻትን</a></li>
+                <li><a href="{% url 'register' %}">ለመመዝገብ</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'saved' %}">saved</a></li>
+                <li><a href="{% url 'send_news' %}">news</a></li>
+                {% endif %}
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+          <main class="content">{% block content %}{% endblock %}</main>
+
+    <script src="{% static 'templatemo-electric-scripts.js' %}"></script>
+</body>
+</html>
